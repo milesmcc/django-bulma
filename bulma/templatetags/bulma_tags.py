@@ -152,6 +152,12 @@ def addclass(field, css_class):
         css_class += ' is-danger'
     return field.as_widget(attrs={"class": css_class})
 
+@register.filter
+def to_color(field):
+    if field:
+        return "is-success"
+    else:
+        return "is-danger"
 
 @register.filter
 def bulma_message_tag(tag):
