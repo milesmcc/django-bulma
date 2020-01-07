@@ -10,6 +10,15 @@
 
 {% for field in form.hidden_fields %}
   {{ field }}
+  {% if field.errors %}
+  <div class="message is-danger">
+    <div class="message-body">
+      {% for field_error in field.errors %}
+        {{ field_error }}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 {% endfor %}
 
 {% for field in form.visible_fields %}
