@@ -164,3 +164,11 @@ def bulma_message_tag(tag):
     return {
         'error': 'danger'
     }.get(tag, tag)
+
+@register.filter
+def split_into_columns(data, columns="2"):
+    columns = int(columns)
+    split = [[] for i in range(columns)]
+    for i in range(len(data)):
+        split[i % columns].append(data[i])
+    return split
