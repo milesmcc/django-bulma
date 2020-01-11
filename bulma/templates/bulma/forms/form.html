@@ -8,6 +8,14 @@
   </div>
 {% endif %}
 
+{% if form.errors %}
+  <div class="message is-danger">
+    <div class="message-body">
+      Please fix the errors below before continuing.
+    </div>
+  </div>
+{% endif %}
+
 {% for field in form.hidden_fields %}
   {{ field }}
   {% if field.errors %}
